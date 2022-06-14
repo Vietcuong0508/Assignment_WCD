@@ -24,11 +24,12 @@ public class MySqlDishModel implements DishModel {
             preparedStatement.setDouble(3, obj.getPrice());
             preparedStatement.setInt(4, obj.getCategoryId());
             preparedStatement.setString(5, obj.getDescription());
-            preparedStatement.setString(6, obj.getCreatedAt().toString());
-            preparedStatement.setString(7, obj.getUpdatedAt().toString());
-            preparedStatement.setInt(8, obj.getCreatedBy());
-            preparedStatement.setInt(9, obj.getUpdatedBy());
-            preparedStatement.setInt(10, obj.getStatus().getValue());
+            preparedStatement.setString(6, obj.getSaleDate().toString());
+            preparedStatement.setString(7, obj.getCreatedAt().toString());
+            preparedStatement.setString(8, obj.getUpdatedAt().toString());
+            preparedStatement.setInt(9, obj.getCreatedBy());
+            preparedStatement.setInt(10, obj.getUpdatedBy());
+            preparedStatement.setInt(11, obj.getStatus().getValue());
             preparedStatement.execute();
             return true;
         } catch (Exception ex) {
@@ -49,10 +50,11 @@ public class MySqlDishModel implements DishModel {
             preparedStatement.setDouble(3, updateObj.getPrice());
             preparedStatement.setInt(4, updateObj.getCategoryId());
             preparedStatement.setString(5, updateObj.getDescription());
-            preparedStatement.setString(6, updateObj.getUpdatedAt().toString());
-            preparedStatement.setInt(7, updateObj.getUpdatedBy());
-            preparedStatement.setInt(8, updateObj.getStatus().getValue());
-            preparedStatement.setInt(9, id);
+            preparedStatement.setString(6, updateObj.getSaleDate().toString());
+            preparedStatement.setString(7, updateObj.getUpdatedAt().toString());
+            preparedStatement.setInt(8, updateObj.getUpdatedBy());
+            preparedStatement.setInt(9, updateObj.getStatus().getValue());
+            preparedStatement.setInt(10, id);
             preparedStatement.execute();
             return true;
         } catch (SQLException e) {
@@ -143,7 +145,7 @@ public class MySqlDishModel implements DishModel {
             Double price = resultSet.getDouble(SqlConstant.DISH_FIELD_PRICE);
             int categoryId = resultSet.getInt(SqlConstant.DISH_FIELD_CATEGORY_ID);
             String description = resultSet.getString(SqlConstant.DISH_FIELD_DESCRIPTION);
-            Date saleDate = resultSet.getDate(SqlConstant.DISH_FIELD_SALE_DATE);
+            LocalDateTime saleDate = resultSet.getTimestamp(SqlConstant.DISH_FIELD_SALE_DATE).toLocalDateTime();
             int status = resultSet.getInt(SqlConstant.DISH_FIELD_STATUS);
             LocalDateTime createdAt = resultSet.getTimestamp(SqlConstant.FIELD_CREATED_AT).toLocalDateTime();
             LocalDateTime updatedAt = resultSet.getTimestamp(SqlConstant.FIELD_UPDATED_AT).toLocalDateTime();

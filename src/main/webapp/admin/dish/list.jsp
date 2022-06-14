@@ -48,20 +48,36 @@
                                 <th>Name</th>
                                 <th>Thumbnail</th>
                                 <th>Price</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <%for (int i = 0; i < list.size(); i++) {%>
                             <tr class="<%=i%2 == 0 ? "" : "odd"%>">
-                                <td><%=list.get(i).getId()%></td>
-                                <td><%=list.get(i).getFood()%></td>
-                                <td><img src="<%=list.get(i).getThumbnail()%>" class="img-thumbnail img-rounded" style="width: 192px; height: 128px;"></td>
-                                <td><%=list.get(i).getPrice()%></td>
+                                <td><%=list.get(i).getId()%>
+                                </td>
+                                <td><%=list.get(i).getFood()%>
+                                </td>
+                                <td><img src="<%=list.get(i).getThumbnail()%>" class="img-thumbnail img-rounded"
+                                         style="width: 192px; height: 128px;"></td>
+                                <td><%=list.get(i).getPrice()%>
+                                </td>
                                 <td>
-                                    <a href="/admin/products/detail?id=<%=list.get(i).getId()%>" class="btn icon icon-left btn-primary"><i data-feather="info"></i> Detail</a>
-                                    <a href="/admin/products/update?id=<%=list.get(i).getId()%>" class="btn icon icon-left btn-success"><i data-feather="edit"></i> Edit</a>
-                                    <a href="/admin/products/delete?id=<%=list.get(i).getId()%>" class="btn icon icon-left btn-danger"><i data-feather="trash-2"></i> Delete</a>
+                                    <%
+                                        if (list.get(i).getStatus().getValue() == 1) {
+                                    %>
+                                    <span class="badge badge-success" style="color: black">ARE SELLING</span>
+                                    <%}%>
+
+                                </td>
+                                <td>
+                                    <a href="/admin/dish/detail?id=<%=list.get(i).getId()%>"
+                                       class="btn icon icon-left btn-primary"><i data-feather="info"></i> Detail</a>
+                                    <a href="/admin/dish/update?id=<%=list.get(i).getId()%>"
+                                       class="btn icon icon-left btn-success"><i data-feather="edit"></i> Edit</a>
+                                    <a href="/admin/dish/delete?id=<%=list.get(i).getId()%>"
+                                       class="btn icon icon-left btn-danger" onclick="return confirm('Are you sure you want to delete?')"><i data-feather="edit"></i> Delete</a>
                                 </td>
                             </tr>
                             <%}%>

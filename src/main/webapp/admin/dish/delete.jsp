@@ -35,7 +35,7 @@
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class='breadcrumb-header'>
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="/admin/dist/list">Product Management</a></li>
+                                <li class="breadcrumb-item"><a href="/admin/products/list">Product Management</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Product Detail</li>
                             </ol>
                         </nav>
@@ -44,53 +44,56 @@
 
             </div>
             <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Product detail</h4>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label>Name: </label>
-                                        <%=dish.getFood()%>
+                <form action="/admin/dish/delete" method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Product detail</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>Name: </label>
+                                            <%=dish.getFood()%>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>Price: </label>
+                                            <%=dish.getPrice()%>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <div class="form-group">
+                                            <label>Description: </label>
+                                            <%=dish.getDescription()%>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <div class="form-group">
+                                            <label>Thumbnail: </label>
+                                            <img class="img-thumbnail img-rounded" src="<%=dish.getThumbnail()%>">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>Category: </label>
+                                            <%=dish.getCategoryId()%>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label>Status: </label>
+                                            <%=dish.getStatus().name()%>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label>Price: </label>
-                                        <%=dish.getPrice()%>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-12">
-                                    <div class="form-group">
-                                        <label>Description: </label>
-                                        <%=dish.getDescription()%>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-12">
-                                    <div class="form-group">
-                                        <label>Thumbnail: </label>
-                                        <img class="img-thumbnail img-rounded" src="<%=dish.getThumbnail()%>">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label>Category: </label>
-                                        <%=dish.getCategoryId()%>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label>Status: </label>
-                                        <%=dish.getStatus().name()%>
-                                    </div>
-                                </div>
+                                <button type="submit" value="Submit" class="btn btn-primary me-1 mb-1">Delete</button>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
 

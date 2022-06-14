@@ -116,7 +116,7 @@
                                                 </button>
                                             </div>
                                             <div>
-                                                <img id="preview-image" class="img-size-64 img-rounded img-thumbnail">
+                                                <img id="preview-image" class="img-size-64 img-rounded img-thumbnail" src="https://imgv3.fotor.com/images/homepage-feature-card/Upload-an-image.jpg" width="250" height="180">
                                                 <input type="hidden" name="thumbnail" id="hidden-thumbnails">
                                             </div>
                                         </div>
@@ -136,7 +136,7 @@
                                     <div class="col-md-4 col-12">
                                         <div class="form-group">
                                             <label for="date-column">Sale date</label>
-                                            <input type="date" id="date-column" class="form-control" name="saleDate">
+                                            <input type="datetime-local" id="date-column" class="form-control" name="saleDate">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-12">

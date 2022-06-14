@@ -14,7 +14,7 @@ public class Dish extends BaseEntity {
     public String description;
     public String thumbnail;
     public double price;
-    public Date saleDate;
+    public LocalDateTime saleDate;
     public DishStatus status;
 
     public Dish() {
@@ -22,12 +22,13 @@ public class Dish extends BaseEntity {
         this.price = 0;
         this.setCreatedAt(LocalDateTime.now());
         this.setUpdatedAt(LocalDateTime.now());
+        this.setSaleDate(LocalDateTime.now());
         this.setCreatedBy(0);
         this.setUpdatedBy(0);
         this.status = DishStatus.ON_SALE;
     }
 
-    public Dish(int id, String name, int categoryId, String description, String thumbnail, double price, Date saleDate) {
+    public Dish(int id, String name, int categoryId, String description, String thumbnail, double price, LocalDateTime saleDate) {
         this.id = id;
         this.name = name;
         this.categoryId = categoryId;
@@ -37,7 +38,7 @@ public class Dish extends BaseEntity {
         this.saleDate = saleDate;
     }
 
-    public Dish(int id, String name, int categoryId, String description, String thumbnail, double price, Date saleDate, DishStatus status) {
+    public Dish(int id, String name, int categoryId, String description, String thumbnail, double price, LocalDateTime saleDate, DishStatus status) {
         this.id = id;
         this.name = name;
         this.categoryId = categoryId;
@@ -95,11 +96,11 @@ public class Dish extends BaseEntity {
         this.price = price;
     }
 
-    public Date getSaleDate() {
+    public LocalDateTime getSaleDate() {
         return saleDate;
     }
 
-    public void setSaleDate(Date saleDate) {
+    public void setSaleDate(LocalDateTime saleDate) {
         this.saleDate = saleDate;
     }
 
@@ -146,7 +147,7 @@ public class Dish extends BaseEntity {
         public String description;
         public String thumbnail;
         public double price;
-        public Date saleDate;
+        public LocalDateTime saleDate;
         public DishStatus status;
         private HashMap<String, String> errors = new HashMap<>();
         private LocalDateTime createdAt;
@@ -159,8 +160,9 @@ public class Dish extends BaseEntity {
         private DishBuilder() {
             this.name = "";
             this.price = 0;
-            this.deletedAt = LocalDateTime.now();
+            this.createdAt = LocalDateTime.now();
             this.updatedAt = LocalDateTime.now();
+            this.saleDate = LocalDateTime.now();
             this.createdBy = 0;
             this.updatedBy = 0;
             this.status = DishStatus.ON_SALE;
@@ -200,7 +202,7 @@ public class Dish extends BaseEntity {
             return this;
         }
 
-        public DishBuilder withSaleDate(Date saleDate) {
+        public DishBuilder withSaleDate(LocalDateTime saleDate) {
             this.saleDate = saleDate;
             return this;
         }

@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 public class CreateDishServlet extends HttpServlet {
@@ -46,6 +49,7 @@ public class CreateDishServlet extends HttpServlet {
             String description = req.getParameter("description");
             String thumbnail = req.getParameter("thumbnail");
             double price = Double.parseDouble(req.getParameter("price"));
+            LocalDateTime saleDate = LocalDateTime.parse(req.getParameter("saleDate"));
             int status = Integer.parseInt(req.getParameter("status"));
 //            req.setAttribute("action", 1);
             // Khởi tạo đối tượng account từ thông tin truyền lên.
@@ -55,6 +59,7 @@ public class CreateDishServlet extends HttpServlet {
                     .withDescription(description)
                     .withThumbnail(thumbnail)
                     .withPrice(price)
+                    .withSaleDate(saleDate)
                     .withStatus(DishStatus.of(status))
                     .build();
             if(dish.isValid()){

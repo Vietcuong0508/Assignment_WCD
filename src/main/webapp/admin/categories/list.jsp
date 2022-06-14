@@ -57,7 +57,7 @@
                                 <td>
                                     <a href="/admin/categories/detail?id=<%=list.get(i).getId()%>" class="btn icon icon-left btn-primary"><i data-feather="info"></i> Detail</a>
                                     <a href="/admin/categories/update?id=<%=list.get(i).getId()%>" class="btn icon icon-left btn-success"><i data-feather="edit"></i> Edit</a>
-                                    <a href="/admin/categories/delete?id=<%=list.get(i).getId()%>" class="btn icon icon-left btn-danger"><i data-feather="trash-2"></i> Delete</a>
+                                    <a href="/admin/categories/delete?id=<%=list.get(i).getId()%>" class="btn icon icon-left btn-danger" onclick="return confirm('Are you sure you want to delete?')"><i data-feather="trash-2"></i> Delete</a>
                                 </td>
                             </tr>
                             <%}%>
