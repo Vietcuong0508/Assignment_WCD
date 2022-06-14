@@ -22,7 +22,7 @@
     if (errors == null) {
         errors = new HashMap<>();
     }
-    Dish dish = (Dish) request.getAttribute("dishes");
+    Dish dish = (Dish) request.getAttribute("dish");
     if (dish == null) {
         dish = Dish.DishBuilder.aDish().build();
     }
@@ -136,7 +136,7 @@
                                     <div class="col-md-4 col-12">
                                         <div class="form-group">
                                             <label for="date-column">Sale date</label>
-                                            <input type="datetime-local" id="date-column" class="form-control" name="saleDate">
+                                            <input type="datetime-local" id="date-column" class="form-control" name="saleDate" value="<%=dish.getSaleDate()%>">
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-12">
@@ -174,6 +174,7 @@
 <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
 
 <script type="text/javascript">
+    document.getElementById("exampleFormControlTextarea1").value = <%=dish.getDescription()%>;
     var myWidget = cloudinary.createUploadWidget({
             cloudName: 'cuong0508',
             uploadPreset: 'wsmp4snv'
